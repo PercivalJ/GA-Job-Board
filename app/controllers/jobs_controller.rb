@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new(params.require())
+    @job = Job.new
   end
 
   def edit
