@@ -1,0 +1,36 @@
+<h1>Jobs#new Adding a new job page here</h1>
+<p>Find me in app/views/jobs/new.html.erb</p>
+
+<%= form_for @job do |f| %>
+
+  <p>
+  <%= f.label :title  %>
+  <%= f.text_field :title %>
+  </p>
+
+  <p>
+  <%= f.label :company %>
+  <%= f.text_field :company %>
+  </p>
+
+  <p>
+  <%= f.label :location  %>
+  <%= f.text_field :location %>
+  </p>
+
+  <p>
+  <%= f.label :url %>
+  <%= f.text_area :url %>
+  </p>
+
+  <p>
+  <%= f.label :description  %>
+  <%= f.text_field :description %>
+  </p>
+
+
+
+ 
+ <%= f.submit %>
+
+<% end %>
