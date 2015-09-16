@@ -1,2 +1,40 @@
-<h1>Jobs#index This will be the Home page soon</h1>
+<h1>Jobs#index This is the job home page showing all the jobs</h1>
 <p>Find me in app/views/jobs/index.html.erb</p>
+
+<ul>
+	<% @jobs.each do |job| %>
+		<li>
+			<h1>
+				<%= job.title %>
+			</h1>
+
+			<p>
+				<strong>Company:</strong>
+				<%= job.company %>
+			</p>
+
+			<p>
+				<strong>Location:</strong>
+				<%= job.location %>
+			</p>
+
+			<p>
+				<strong>Url:</strong>
+				<%= job.url %>
+			</p>
+
+			<p>
+				<strong>Description:</strong>
+				<%= job.description %>
+			</p>
+			<p>
+				<strong>ID:</strong>
+				<%= job.id %>
+			</p>
+		</li>
+
+	<% end %>
+
+</ul>
+
+<%= link_to 'Top of the page', jobs_path %>

@@ -4,8 +4,8 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.string :company
       t.string :location
-      t.text :url
-      t.string :description
+      t.string :url
+      t.text :description
       t.integer :user_id
       t.belongs_to :user, index: true, foreign_key: true
 

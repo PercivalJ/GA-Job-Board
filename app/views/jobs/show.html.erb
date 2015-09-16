@@ -1,2 +1,29 @@
 <h1>Jobs#show</h1>
 <p>Find me in app/views/jobs/show.html.erb</p>
+
+<h1>
+	<%= @job.title %>
+</h1>
+
+<p>
+<strong>Company:</strong>
+<%= @job.company %>
+</p>
+
+<p>
+<strong>Location:</strong>
+<%= @job.location %>
+</p>
+
+<p>
+<strong>Url:</strong>
+<%= @job.url %>
+</p>
+
+<p>
+<strong>Description:</strong>
+<%= @job.description %>
+</p>
+
+
+<%= link_to 'Back', jobs_path %>
