@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.page(params[:page]).per(3)
   end
+
 
   def show
   @job = Job.find(params[:id]) 
@@ -11,11 +12,8 @@ class JobsController < ApplicationController
   @job = Job.new
   end
 
-  def edit
-  end
-
   def create
-    @job = Job.new(job_params)
+    @job = current_user.jobs.new(job_params)
     if @job.save
       redirect_to jobs_path
     else
@@ -23,7 +21,25 @@ class JobsController < ApplicationController
   end
 end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = current_user.jobs.find(params[:id])
+
+    if @job.update_attributes(job_params)
+        redirect_to jobs_path
+    else
+      render :edit
+    end
+  end
+
+  
   def destroy
+    @job = current_user.jobs.find(params[:id])
+    @job.destroy
+    redirect_to jobs_path
   end
 
   private

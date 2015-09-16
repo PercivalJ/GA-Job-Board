@@ -1,0 +1,9 @@
+ <h2><%= @user.email %></h2>
+<%= link_to 'See New Jobs', jobs_path %>
+<% @user.jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.title, job %></td>
+        <td><%= link_to job.user.email, job.user %></td>
+      </tr>
+
+      <% end %>

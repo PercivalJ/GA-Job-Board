@@ -2,7 +2,7 @@
 <p>Find me in app/views/jobs/index.html.erb</p>
 
 <ul>
-	<% @jobs.each do |job| %>
+	<%  @jobs.each do |job| %>
 		<li>
 			<h1>
 				<%= job.title %>
@@ -25,16 +25,25 @@
 
 			<p>
 				<strong>Description:</strong>
-				<%= job.description %>
+				<%= job.description %>				
+			</p>
+			<p>
+				<strong>Posted:</strong>
+				<%= job.created_at %>
 			</p>
 			<p>
 				<strong>ID:</strong>
 				<%= job.id %>
 			</p>
+			<%= link_to 'Show', job  %>
+			<%= link_to 'Edit', edit_job_path(job) %>	
+			<%= link_to 'Delete', job, method: :delete, data: { confirm: "Are you sure you want to delete this Job?"} %>
 		</li>
 
 	<% end %>
 
 </ul>
 
-<%= link_to 'Top of the page', jobs_path %>
+<p><%= link_to 'Back to Top', jobs_path %></p>
+
+<p><%= paginate @jobs %></p>
