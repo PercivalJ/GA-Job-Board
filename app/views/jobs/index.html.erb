@@ -1,4 +1,4 @@
-<h1>Jobs#index This is the job home page showing all the jobs</h1>
+<p>Jobs#index This is the job home page showing all the jobs</p>
 <p>Find me in app/views/jobs/index.html.erb</p>
 
 <ul>
@@ -35,7 +35,7 @@
 				<strong>ID:</strong>
 				<%= job.id %>
 			</p>
-			<%= link_to 'Show', job  %>
+			<%= link_to 'Comment', new_job_comment_path(job) %>
 			<%= link_to 'Edit', edit_job_path(job) %>	
 			<%= link_to 'Delete', job, method: :delete, data: { confirm: "Are you sure you want to delete this Job?"} %>
 		</li>

@@ -15,8 +15,12 @@ def index
   end
 
   def show
-    @user = User.find(params[:id])
+    if current_user
+    @user = current_user
+  else
+    redirect_to login_path
   end
+end
 
   def create
     @user = User.new user_params

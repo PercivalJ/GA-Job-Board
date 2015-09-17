@@ -27,3 +27,22 @@
 
 <%= link_to 'Edit', edit_job_path(@job) %>
 <%= link_to 'Back', jobs_path %>
+
+<h2> Comments </h2>
+	<% @job.comments.each do |comment| %>
+		<p> 
+			<%= comment.body %>, <strong><%= comment.commenter %></strong>
+		</p>	
+
+	<% end %>
+
+
+<h4> Add a comment: </h4>	
+
+<%= form_for :comment, url: job_comments_path do |f| %>
+	<input type="hidden" name="job_id" value="<%= @job_id %>" />
+
+	<p><%= f.label :body %> <%= f.text_field :body %> </p>
+	<%= f.submit %>
+
+<% end %>

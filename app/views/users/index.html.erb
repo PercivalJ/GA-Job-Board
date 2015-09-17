@@ -3,11 +3,13 @@
 
 
 <% @users.each do |user| %>
-	<tr>
-	<td>
+	
+	<ul>
+		<li>
 		<%= user.email %>
-	</td>
+		</li>
+	</ul>
 		<%= user.jobs.length %> jobs
-	</tr>
+	
 
 <% end %>
