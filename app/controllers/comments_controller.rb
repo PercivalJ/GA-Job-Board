@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.page(params[:page]).per(3)
+    @comments = Comment.all
   end
 
 
@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def new
   @comment = Comment.new
+  @job = Job.find(params[:job_id])
   end
 
   def create
@@ -44,7 +45,7 @@ end
 
   private
   def comment_params
-      params.require(:comment).permit(:body, :user_id)
+      params.require(:comment).permit(:body, :job_id)
     end
 
 
