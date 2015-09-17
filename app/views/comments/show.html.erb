@@ -1,9 +1,16 @@
 <p>this should be comment specific to job</p>
 
+
+<h1>
+	<%= @comment.job_id %>
+</h1>
+
 <p>
   <strong>Body:</strong>
   <%= @comment.body %>
 </p>
 
 
+
+<%= link_to 'Edit', edit_job_comment_path(@comment) if current_user %>
 <%= link_to 'Back', jobs_path %>

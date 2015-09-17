@@ -7,18 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= params %>
+
 
 <%= render 'layouts/navbar' %>
 
-	<ul>
-		<li><%= link_to "Jobs", jobs_path  %></li>
-		<li><%= link_to "Users", users_path  %></li>
-		<li><%= link_to "My Profile", users_path  %></li>
-		<%- if current_user %>
-		<li><%= link_to "Add a new Job", new_job_path %></li>
-		<% end %>							            
-    </ul>
+<!-- 	<ul>  # Original Navbar  
+		<li><%#= link_to "Jobs", jobs_path  %></li>
+		<li><%#= link_to "Users", users_path  %></li>
+		<li><%#= link_to "My Profile", users_path  %></li>
+		<%# if current_user %>
+		<li><%#= link_to "Add a new Job", new_job_path %></li>
+		<%# end %>							            
+    </ul> --> 
 
 <% if current_user %>
 	You are logged in as <%= current_user.email %>
@@ -32,6 +32,7 @@
 
 <%= yield %>
 <%# console %>
+<%= params %>
 
 </body>
 </html>

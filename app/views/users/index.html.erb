@@ -1,15 +1,15 @@
-<p>Find me in app/views/users/index.html.erb</p>
-<h1>Here are all the users</h1>
-
+<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+<div class="page-header">
+  <h1>GA JBoard Members</h1>
+</div>
 
 <% @users.each do |user| %>
 	
 	<ul>
 		<li>
-		<%= user.email %>
+			<%= user.email %><br><%= user.jobs.length %> jobs posted
 		</li>
 	</ul>
-		<%= user.jobs.length %> jobs
-	
+
 
 <% end %>
