@@ -8,20 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">GENERAL ASSEMBLY JBoard</a>
+      <a class="navbar-brand" href="/jobs">GENERAL ASSEMBLY JBoard</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="/users">Members <span class="sr-only">(current)</span></a></li>
+        <li><a href="/users/1">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">All Jobs</a></li>
+            <li><a href="#"><%= link_to "All Jobs", jobs_path  %></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Add a New Job</a></li>
+            <li><a href="#"><%= link_to "Add a new Job", new_job_path %></a></li>
           </ul>
         </li>
       </ul>
@@ -32,7 +32,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Hello, <%= current_user.email %></a></li>
+        <li><a href="#">Hello, <%#= current_user.email %></a></li>
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-size:1.5em;" class="glyphicon glyphicon-cog"></span></a>
