@@ -15,7 +15,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand"><%= link_to "JBOARD", jobs_path  %></a>
+      <a class="navbar-brand"><%= link_to "JBOARD", jobs_path if current_user  %></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +32,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#"><%= link_to "All Jobs", jobs_path  %></a></li>
+            <li><a href="#"><%= link_to "All Jobs", jobs_path if current_user  %></a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#"><%= link_to "Add a new Job", new_job_path if current_user %></a></li>
           </ul>
@@ -45,16 +45,22 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Hello, <%= current_user.email if current_user %></a></li>
+        <li><a href="#">Hello, <strong><%= current_user.email if current_user %></strong></a></li>
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-size:1.5em;" class="glyphicon glyphicon-cog"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><%= link_to "Profile", user_path(current_user) if current_user %></li>
+            <li><%= link_to "Members", users_path  %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><%= link_to 'Log Out', logout_path, method: :delete %></a></li>
+                            <li><% if current_user %>
+                  <strong><%= current_user.email %></strong>
+                  <%= link_to 'Log Out', logout_path, method: :delete %>
+
+                  <% else %>
+                  <%= link_to 'Log In', login_path %>
+                  <%= link_to 'Sign Up', users_new_path %>
+                <% end %></li>
           </ul>
         </li>
       </ul>

@@ -7,9 +7,12 @@
 	
 	<ul>
 		<li>
-			<%= user.email %><br><%= user.jobs.length %> jobs posted
+			<h3><%= user.email %></h3><br><button class="btn btn-primary" type="button"><%= user.jobs.length %>
+  jobs posted <span class="badge"></span>
+</button>	<%#= user.jobs.length %> <!-- jobs posted -->
 		</li>
 	</ul>
 
 
 <% end %>
+

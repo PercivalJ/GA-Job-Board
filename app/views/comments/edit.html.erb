@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>Edit Comment</h1>
+</div>
+
+<%= form_for :comment, url: job_comments_path do |f| %>
+
+<div class="field">
+ <%= f.hidden_field :job_id, :value => @job.id %>
+</div>
+
+<div class="field">
+<%= f.text_area :body %>
+</div>
+	 
+
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
