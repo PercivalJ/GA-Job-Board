@@ -23,10 +23,13 @@ class CommentsController < ApplicationController
 end
 
   def edit
-    @comment = Comment.find(params[:id])
+  	@job = Job.find(params[:id])
+    @comment = Comment.find(params[:id)
   end
+ 
 
   def update
+  	@job = Job.find(params[:id])
     @comment = current_user.comments.find(params[:id])
 
     if @comment.update_attributes(comment_params)
@@ -40,12 +43,12 @@ end
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    redirect_to comments_path
+    redirect_to job_path
   end
 
   private
   def comment_params
-      params.require(:comment).permit(:body, :job_id)
+      params.require(:comment).permit(:body)
     end
 
 

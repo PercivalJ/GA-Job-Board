@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root "sessions#new"
+  root to: "users#index"
   get "users" => "users#index"
   get "users/new" => "users#new" 
   post "users" => "users#create"
@@ -10,13 +10,11 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-
-  resources :users, only: [:index, :show, :new, :create]
-  resources :sessions, only: [:index, :new, :create, :destroy]
-
   resources :jobs do
     resources :comments
-  end
+  end 
+  resources :users, only: [:index, :show, :new, :create]
+  resources :sessions, only: [:index, :new, :create, :destroy]
 
   
 

@@ -39,7 +39,8 @@ end
 
   
   def destroy
-    @job = current_user.jobs.find(params[:id])
+    @job = Job.find(params[:id])
+    @job.comments.destroy_all 
     @job.destroy
     redirect_to jobs_path
   end
