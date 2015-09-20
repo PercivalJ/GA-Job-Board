@@ -15,3 +15,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container-fixed {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.container-fixed > hr {
+  margin: 30px 0;
+}

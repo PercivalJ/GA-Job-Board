@@ -1,6 +1,5 @@
 <!-- <p>this should be comment specific to job</p> -->
-
-
+<div class="container-fixed">
 <h1>
 	<%= @comment.job_id %>
 </h1>
@@ -14,3 +13,4 @@
 
 <%= link_to 'Edit', edit_job_comment_path(@comment) if current_user %>
 <%= link_to 'Back', jobs_path %>
+</div> <!-- Container -->

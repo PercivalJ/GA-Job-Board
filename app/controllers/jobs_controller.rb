@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
     include JobsHelper
-
+    before_action :authenticate
+    
     def index
       @jobs = Job.page(params[:page]).per(5).order(created_at: :desc)
     end
 
 
-    def show
+    def show 
       @job = Job.find(params[:id])
     # @opener = opener    attempt to have links open with target blank
     end
